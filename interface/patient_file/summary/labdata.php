@@ -157,13 +157,13 @@ if (!$printable) {
             $tab=0;
         }
     }
-
+    
     echo "</tr>";
     echo "</table>";
     echo "</div>";
 
     ?><input type='checkbox' onclick="checkAll(this)" /> <?php echo xlt('Toggle All') . "<br/>";
-    echo "<table><tr>";
+    echo "<table class='table-sm table-striped'><tr>";
     // Choose output mode [list vs. matrix]
     echo "<td>" . xlt('Select output') . ":</td>";
     echo "<td><input type='radio' name='mode' ";
@@ -182,16 +182,15 @@ if ($mode != 'list') {
     echo " value='matrix'> " . xlt('Matrix') . "<br />";
 
     echo "<td></td></td>";
-    echo "</tr><tr>";
-    echo "<td>";
-
+    echo "</tr>";
+    echo "</table>";
+    echo "<br>";
+    echo "<div class='btn-group'>";
     echo "<a href='../summary/demographics.php' ";
     echo " class='btn btn-secondary' onclick='top.restoreSession()'>";
     echo "<span>" . xlt('Back to Patient') . "</span></a>";
-
-    echo "</td>";
-    echo "<td><input type='submit' name='submit' value='" . xla('Submit') . "' /></td>";
-    echo "</tr></table>";
+    echo "<td><input type='submit' class='btn btn-primary' name='submit' value='" . xla('Submit') . "' /></td>";
+    echo "</div>";
     echo "</form>";
 } // end "if printable"
     echo "<br /><br /><hr><br />";
@@ -451,7 +450,7 @@ if (!$printable) {
             echo "<input type='hidden' name='value_code[]' value='". attr($this_valuecode) . "'>";
         }
 
-        echo "<input type='submit' name='print' value='" . xla('View Printable Version') . "' />";
+        echo "<input type='submit' class='btn btn-primary' name='print' value='" . xla('View Printable Version') . "' />";
         echo "</form>";
         echo "<br /><a href='../summary/demographics.php' ";
         echo " class='btn btn-secondary' onclick='top.restoreSession()'>";
